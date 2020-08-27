@@ -15,7 +15,7 @@ public struct DespawningEntity : IComponentData
 [InternalBufferCapacity(16)]
 public struct EntityGroupChildren : IBufferElementData
 {
-    public Entity entity;
+    public Entity entity
 }
 
 [DisableAutoCreation]
@@ -26,7 +26,7 @@ public class DestroyDespawning : ComponentSystem
     protected override void OnCreateManager()
     {
         base.OnCreateManager();
-        Group = GetComponentGroup(typeof(DespawningEntity));
+        Group = GetComponentGroup(typeof(DespawningEntity)
     }
     
     protected override void OnUpdate()
@@ -43,7 +43,7 @@ public class GameWorld
 {
     
     // TODO (petera) this is kind of ugly. But very useful to look at worlds from outside for stats purposes...
-    public static List<GameWorld> s_Worlds = new List<GameWorld>();
+    public static List<GameWorld> s_Worlds = new List<GameWorld>(
 
     public GameTime worldTime;
 
@@ -52,7 +52,7 @@ public class GameWorld
     public float frameDuration
     {
         get { return m_frameDuration; }
-        set { m_frameDuration = value; }
+        set { m_frameDuration =? value; }
     }
 
 
